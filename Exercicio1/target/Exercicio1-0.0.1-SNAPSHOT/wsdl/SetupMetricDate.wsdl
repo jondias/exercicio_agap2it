@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://bean.jonathan.exercicio.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://bean.jonathan.exercicio.com" xmlns:intf="http://bean.jonathan.exercicio.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://bean.jonathan.exercicio.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="setDate">
+    <complexType>
+     <sequence>
+      <element name="date" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setDateResponse">
+    <complexType>
+     <sequence>
+      <element name="setDateReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="setDateResponse">
+
+      <wsdl:part element="impl:setDateResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setDateRequest">
+
+      <wsdl:part element="impl:setDate" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SetupMetricDate">
+
+      <wsdl:operation name="setDate">
+
+         <wsdl:input message="impl:setDateRequest" name="setDateRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setDateResponse" name="setDateResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SetupMetricDateSoapBinding" type="impl:SetupMetricDate">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="setDate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setDateRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setDateResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SetupMetricDateService">
+
+      <wsdl:port binding="impl:SetupMetricDateSoapBinding" name="SetupMetricDate">
+
+         <wsdlsoap:address location="http://localhost:8080/Exercicio1/services/SetupMetricDate"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

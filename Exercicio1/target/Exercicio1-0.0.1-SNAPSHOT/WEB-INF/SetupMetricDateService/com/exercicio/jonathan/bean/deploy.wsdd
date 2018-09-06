@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SetupMetricDateService WSDL service -->
+
+  <service name="SetupMetricDate" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://bean.jonathan.exercicio.com"/>
+      <parameter name="wsdlServiceElement" value="SetupMetricDateService"/>
+      <parameter name="schemaQualified" value="http://bean.jonathan.exercicio.com"/>
+      <parameter name="wsdlServicePort" value="SetupMetricDate"/>
+      <parameter name="className" value="com.exercicio.jonathan.bean.SetupMetricDate"/>
+      <parameter name="wsdlPortType" value="SetupMetricDate"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://bean.jonathan.exercicio.com" xmlns:retNS="http://bean.jonathan.exercicio.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="setDate" qname="operNS:setDate" returnQName="retNS:setDateReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://bean.jonathan.exercicio.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:date" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="setDate"/>
+
+  </service>
+</deployment>
